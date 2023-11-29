@@ -7,25 +7,9 @@
 #Assumed constant
 #Runoff Coefficient assumed to be .25
 
-#--DATA FROM CSV--
-#-----------------
-#import runoff
-
-
-
-#import rainfall
-#convert mm to in
-
-
-
-#--USER INPUT--
-#--------------
-selected_station = input("Select a station (1-5, see map for reference): ")
-selected_month = input("Select a month (1-12): ")
-
-#--CALCULATIONS--
-#----------------
-#HOURS IN MONTHS
+#--FUNCTIONS--
+#-------------
+#Delete if using Acess -- Function to convert hours into month
 def MonthHours(month):
     month28 = [2]
     month30 = [4, 6, 9, 11]
@@ -41,6 +25,34 @@ def MonthHours(month):
         print("invalid")
     return monthly_hours
 
+
+
+#--DATA FROM CSV--
+#-----------------
+#import runoff
+
+
+
+#import rainfall
+#convert mm to in
+
+
+#drainage area (ha)
+#Climate Station [Luther Marsh, Guelph Lake, Laurel Creek, York, Rd 32 WQ]
+#                [Legatt, Victoria Road, Erbsville, York, Rd 32 WQ Stn]
+#County          [Dufferin, Guelph/Eramosa, Waterloo, Haldimand, Wellington]
+DrainageArea = [148677, 29284, 6406, 125045, 266536]
+
+#--USER INPUT--
+#--------------
+selected_station = input("Select a station (1-5, see map for reference): ")
+selected_month = input("Select a month (1-12): ")
+
+#--CALCULATIONS--
+#----------------
+#HOURS IN MONTHS
+
+
 #----------------
 #RUNOFF (Roseke, 2013)
 # C = Runoff coefficient = .25 
@@ -50,7 +62,7 @@ def MonthHours(month):
 
 C = .25
 i = 0
-A = 0
+A = DrainageArea[(selected_station-1)]
 Q = C*i*A
 
 
