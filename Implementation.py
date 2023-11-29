@@ -9,11 +9,11 @@
 
 #--DATA FROM CSV--
 #-----------------
-#input runoff
+#import runoff
 
 
 
-#input rainfall
+#import rainfall
 #convert mm to in
 
 
@@ -24,6 +24,23 @@ selected_station = input("Select a station (1-5, see map for reference): ")
 selected_month = input("Select a month (1-12): ")
 
 #--CALCULATIONS--
+#----------------
+#HOURS IN MONTHS
+def MonthHours(month):
+    month28 = [2]
+    month30 = [4, 6, 9, 11]
+    month31 = [1, 3, 5, 7, 8, 10, 12]
+
+    if month in month28:
+        monthly_hours = 28*24
+    elif month in month30:
+        monthly_hours = 30*24
+    elif month in month31: 
+        monthly_hours = 31*24
+    else:
+        print("invalid")
+    return monthly_hours
+
 #----------------
 #RUNOFF (Roseke, 2013)
 # C = Runoff coefficient = .25 
