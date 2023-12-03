@@ -13,11 +13,9 @@
 
 #--DATA FROM CSV--
 #-----------------
-#import runoff
+#import data
 
-
-
-#import rainfall
+list = [[id], [station], [month], [flow 18], [flow22], [precip18], [precip22], [areaha]]
 
 
 #drainage area (ha)
@@ -44,23 +42,26 @@ selected_month = input("Select a month (1-12): ")
 # Q = Runoff (m^3/s)
 
 C = .25
-i = 0
-A = DrainageArea[(selected_station-1)] #grabs indexed station area
-Q = .00278*C*i*A
+# Ri = 0
+# A = DrainageArea[(selected_station-1)] #grabs indexed station area
+# Q = .00278*C*i*A
 
+record = []
 
+for i in range (len(list)):
+    #get the station specific records
+    record = record + list[i][(selected_station-1)*12:(selected_station)*12]
 
-
-
-
+for j <=12: 
 
 #MONTHLY AVERAGE FLOW, PRECIPITATION
-flow_2018 = 
-flow_2022 = 
-precip_2018 = 
-precip_2022 = 
-runoff_2018 = 
-runoff_2022 = 
+flow_2018 = record[3][selected_month]
+flow_2022 = record[4][selected_month]
+precip_2018 = record[5][selected_month]
+precip_2022 = record[6][selected_month]
+DrainageArea = record[7][selected_month]
+runoff_2018 = .00278*C*precip_2018*DrainageArea
+runoff_2022 = .00278*C*precip_2022*DrainageArea
 #CHANGE
 change_flow = flow_2018-flow_2022
 change_precip = precip_2018-precip_2022
