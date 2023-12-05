@@ -36,6 +36,24 @@
 # to make up the csv.
 # https://www.analyticsvidhya.com/blog/2021/08/python-tutorial-working-with-csv-file-for-data-science/ - For the csv to list import. 
 
+#--Import arcpy module --
+import arcpy
+
+# Arcpy: A function for creating the station layer uses user input
+def change_station_symbology(selected_station_name, change_flow, m):
+    lyr = m.listLayers(selected_station_name)[0]
+    sym = lyr.symbology
+    #List the colours that we will be using
+    red = {"RGB": [255, 0, 0, 100]}
+    green = {"RGB": [115, 175, 0, 100]}
+
+    if change_flow >0 and lyr.isFeatureLayer and hasattr(sym, "renderer"):
+        sym.renderer.symbol.color = green
+    elif change_flow < 0 and lyr.isFeatureLayer and hasattr(sym, "renderer"):
+        sym.renderer.symbol.color = red
+
+    lyr.symbology = sym
+
 #--DATA FROM CSV--
 #Import Data
 
@@ -121,6 +139,19 @@ while again.lower()== 'y':
     print('2018\t\t' + str(flow_2018) + '\t\t' + str(precip_2018)  + '\t\t' + str(runoff_2018))
     print('2022\t\t' + str(flow_2022) + '\t\t' + str(precip_2022) + '\t\t' + str(runoff_2022))
     print("'18-'22\t\t" + str(change_flow) + '\t\t' + str(change_precip) + '\t\t' + str(change_runoff))
+
+
+    #Accessing our ArcGIS Pro File
+    aprx = arcpy.mp.ArcGISProject("GrandRiver.aprx")
+    #Accessing the Map 
+    m = aprx.listMaps("Map")[0]
+
+    station_names_list = ["StationOne", "StationTwo", "StationThree", "StationFour", "StationFive"]
+    if 1 <= selected_station <= 5:
+        change_station_symbology(station_names_list[selected_station - 1], change_flow, m)
+
+    aprx.saveACopy("GrandRiver_Symbology.aprx")
+    del aprx
 
     #Ask user if they want to go again
     again = input('Would you like to select another month or location to display? (y/n) ')
