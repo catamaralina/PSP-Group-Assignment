@@ -102,5 +102,5 @@ if selected_station == 5:
     else: 
         aprx.save()
         del aprx
-else:
-    del aprx
+
+del aprx
