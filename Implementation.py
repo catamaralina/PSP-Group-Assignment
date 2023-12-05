@@ -33,9 +33,28 @@ while again == 1:
     #--------------
 
     #ADD IN HANDLERS FOR INPUT VALUES THAT ARE NOT INTEGERS
-    selected_station = int(input("Select a station (1-5, see map for reference): "))
-    selected_month = int(input("Select a month (1-12): "))-1
+    while True:
+        try:
+            selected_station = int(input("Select a station (1-5, see map for reference): "))
+        except TypeError
+            print("Must enter an integer!")
+        else:
+            if 1 <= selected_station <5
+                break 
+            else:
+                print ("Out of Range.")
 
+    while True:
+        try:
+            selected_month = int(input("Select a month (1-12): "))-1
+        except TypeError
+            print("Must enter an integer!")
+        else:
+            if 1 <= selected_month <12
+                break 
+            else:
+                print ("Out of Range.")
+    
     ##Obtaining the station specific records
     record = []
     for i in list:
