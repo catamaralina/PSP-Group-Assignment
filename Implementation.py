@@ -48,10 +48,10 @@ while again == 'y':
     while True:
         try:
             selected_station = int(input("Select a station (1-5, see map for reference): "))
-        except TypeError
+        except TypeError:
             print("Must enter an integer!")
         else:
-            if 1 <= selected_station <5
+            if 1 <= selected_station <5:
                 break 
             else:
                 print ("Out of Range.")
@@ -59,10 +59,10 @@ while again == 'y':
     while True:
         try:
             selected_month = int(input("Select a month (1-12): "))-1
-        except TypeError
+        except TypeError:
             print("Must enter an integer!")
         else:
-            if 1 <= selected_month <12
+            if 1 <= selected_month <12:
                 break 
             else:
                 print ("Out of Range.")
