@@ -15,6 +15,7 @@
 # https://www.roseke.com/how-to-calculate-runoff/ - We got our formula used for the calculations from this site.
 # https://www.oregon.gov/ODOT/GeoEnvironmental/Docs_Hydraulics_Manual/Hydraulics-07-F.pdf - This site contains a thorough list of the coefficient used within the formula, where we got our constant 0.25 due to the watershed being made up of 70% farms.
 # https://data.grandriver.ca/downloads-monitoring.html - From the Grand River Conservation Authority we downloaded the open data used to make up the csv.
+# https://www.analyticsvidhya.com/blog/2021/08/python-tutorial-working-with-csv-file-for-data-science/ - For the csv to list import. 
 
 #Assumed constant
 #Runoff Coefficient assumed to be .25
