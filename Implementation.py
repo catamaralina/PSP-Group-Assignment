@@ -72,7 +72,7 @@ list = list(rows)
 #Again = y for looping purposes. 
 again = 'y'
 
-while again.lower()== 'y': 
+while again == 'y': 
     #--USER INPUT--
     #ADD IN HANDLERS FOR INPUT VALUES THAT ARE NOT INTEGERS
     while True:
@@ -152,8 +152,13 @@ while again.lower()== 'y':
     aprx.saveACopy("GrandRiver_Symbology.aprx")
     del aprx
 
-    #Ask user if they want to go again
-    again = input('Would you like to select another month or location to display? (y/n) ')
+    #Looping to ask the user if they want to go again or not
+    while True:
+        again = input('Would you like to select another month or location to display? (y/n) ').lower()
     
-    if again.lower() not in ['y','n']:
-        print("Please enter 'y' or 'n'")
+        if again in ['y','n']:
+            break
+        else:
+            print("Please enter 'y' or 'n'")
+
+print("Thank you for using our program, have a wonderful day!")
