@@ -55,7 +55,7 @@ list = list(rows)
 #Again = y for looping purposes. 
 again = 'y'
 
-while again.lower== 'y': 
+while again.lower()== 'y': 
     #--USER INPUT--
     #ADD IN HANDLERS FOR INPUT VALUES THAT ARE NOT INTEGERS
     while True:
