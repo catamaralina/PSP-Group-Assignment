@@ -1,8 +1,8 @@
 # Title: Water Budget
 # Date: Tuesday, December 5, 2023
 # Author Contributions:
-#	Mengie: Created the Arcpy portion that will change the symbology of the two stations selected by the user on a map either 
-#           green or red depending on runoff ratio of the watershed.
+#	Mengie: Created the Arcpy portion that will change the symbology of the station(s) selected by the user on a map either 
+#           green or red depending on change_flow of the watershed.
 #	Tali: Created implementation portion of code: CSV import, loop for user, getting data from import, calculations, output table.
 #	Ryan: code :D
 #	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv - and wrote the 
