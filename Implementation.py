@@ -4,7 +4,7 @@
 #	Mengie: Created the Arcpy portion that will change the symbology of the two stations selected by the user on a map either green or red depending on runoff ratio of the watershed.
 #	Tali: code :D
 #	Ryan: code :D
-#	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv.
+#	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv - and wrote the comments for the top of the code.
 # Purpose: Runoff is described to be the total amount of water discharged from a watershed via river or streams, and the runoff ratio is the runoff for each watershed divided by the precipitation for that watershed (Minnesota Pollution Control Agency). This program uses open sourced data collected from the Grand River Watershed to determine statistical calculations of a selected specific station in a select month and then compares between 2018 and 2022. As well, calculates the average and compares it to other stations in the watershed.
 # Description of Structure: The code begins with importing the data csv in read only. The code asks the user for inputs of selected stations and chosen month in numerical form. The csv is formatted the data in a list of lists. Calculation is made from the formula and then the change between the values for the change in flow between the years, change in precipitation, and then change in runoff. In the terminal, the original values are printed and then in a table format the calculated answers are displayed. The option to loop the program is given if the user wishes to see the difference from another station.
 # Assumptions: Idk
