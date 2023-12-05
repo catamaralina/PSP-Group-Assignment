@@ -38,6 +38,7 @@
 
 #--Import arcpy module --
 import arcpy
+import csv
 
 # Arcpy: A function for creating the station layer uses user input
 def change_station_symbology(selected_station_name, change_flow, m):
@@ -56,8 +57,6 @@ def change_station_symbology(selected_station_name, change_flow, m):
 
 #--DATA FROM CSV--
 #Import Data
-
-import csv
 rows = []
 header = []
 with open("Complete_Table.csv", 'r') as file:
