@@ -3,7 +3,8 @@
 # Author Contributions:
 #	Mengie: Created the Arcpy portion that will change the symbology of the station(s) selected by the user on a map either 
 #           green or red depending on runoff of the watershed.
-#	Tali: Created implementation portion of code: CSV import, loop for user, getting data from import, calculations, output table.
+#	Tali: Created implementation portion of code: CSV import, user input & loop, getting station specific data from import,
+#           calculations, output table.
 #	Ryan: code :D
 #	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv - and wrote the 
 #           comments for the top of the code.
@@ -92,7 +93,7 @@ while again == 'y':
         except ValueError:
             print("Must enter an integer!")
         else:
-            if 1 <= selected_month <=12:
+            if 0 <= selected_month <12:
                 break 
             else:
                 print ("Out of Range.")
@@ -114,7 +115,7 @@ while again == 'y':
     precip_2018 = float(record[selected_month][5])
     precip_2022 = float(record[selected_month][6])
 
-    #RUNOFF (Roseke, 2013)
+    #RUNOFF FORMULA (Roseke, 2013)
     # C = Runoff coefficient = .25 
     # i = Rainfall intensity (mm/hr)
     # A = Drainage area (ha)
@@ -125,19 +126,22 @@ while again == 'y':
     runoff_2018 = .00278*C*precip_2018*DrainageArea
     runoff_2022 = .00278*C*precip_2022*DrainageArea
 
-    #CHANGE
+    # CHANGE
     change_flow = flow_2018-flow_2022
     change_precip = precip_2018-precip_2022
     change_runoff = runoff_2018-runoff_2022
 
-    #--OUTPUT--
+    # --OUTPUT--
     print("Runoff coefficient in the Grand River watershed is assumed to be .25")
     print("Selected station: ", selected_station)
     print("Selected month: ", (selected_month+1)) #Took a -1 at the beginning for indexing purposes. 
-    print('year\t\tFlow(m^3/s)\t\tPrecipitation(mm/hr)\t\tRunoff(m^3/s)')
-    print('2018\t\t' + str(flow_2018) + '\t\t' + str(precip_2018)  + '\t\t' + str(runoff_2018))
-    print('2022\t\t' + str(flow_2022) + '\t\t' + str(precip_2022) + '\t\t' + str(runoff_2022))
-    print("'18-'22\t\t" + str(change_flow) + '\t\t' + str(change_precip) + '\t\t' + str(change_runoff))
+
+    # TABULAR OUTPUT
+    print('year\t\tFlow(m^3/s)\tPrecipitation(mm/hr)\tRunoff(m^3/s)')
+    # Values are rounded for ease of user readability
+    print('2018\t\t' + str(round(flow_2018,4)) + '\t\t' + str(round(precip_2018, 4))  + '\t\t\t' + str(round(runoff_2018, 4)))
+    print('2022\t\t' + str(round(flow_2022,4)) + '\t\t' + str(round(precip_2022, 4)) + '\t\t\t' + str(round(runoff_2022,4)))
+    print("'18-'22\t\t" + str(round(change_flow, 4)) + '\t\t' + str(round(change_precip, 4)) + '\t\t\t' + str(round(change_runoff,4)))
 
     # --ARCPY--
     #Accessing our ArcGIS Pro File
