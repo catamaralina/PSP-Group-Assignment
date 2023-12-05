@@ -25,10 +25,10 @@ list = list(rows)
 #list = [[id], [station], [month], [flow 18], [flow22], [precip18], [precip22], [areaha]]
 #         [0]   [1]         [2]     [3]         [4]         [5]         [6]         [7]
 
-#Again = 1 for looping purposes. 
-again = 1 
+#Again = y for looping purposes. 
+again = 'y'
 
-while again == 1: 
+while again == 'y': 
     #--USER INPUT--
     #--------------
 
@@ -102,9 +102,5 @@ while again == 1:
 
     #Ask user if they want to go again
     again = input('Would you like to select another month or location to display? (y/n) ')
-    if again.lower() == 'y':
-        again = 1
-    elif again.lower() == 'n':
-        again = 0
-    else:
-        print("please print y or n")
+    if again.lower() not in ['y','n']:
+        print("Please enter 'y' or 'n'")
