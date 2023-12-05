@@ -4,7 +4,6 @@ change_flow = 5
 
 #import the arcpy module
 import arcpy
-import os
 
 # A function for creating the station layer uses user input
 def change_station_symbology(selected_station_name, change_flow, m):
