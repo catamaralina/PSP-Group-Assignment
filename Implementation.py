@@ -2,7 +2,7 @@
 # Date: Tuesday, December 5, 2023
 # Author Contributions:
 #	Mengie: Created the Arcpy portion that will change the symbology of the station(s) selected by the user on a map either 
-#           green or red depending on change_flow of the watershed.
+#           green or red depending on runoff of the watershed.
 #	Tali: Created implementation portion of code: CSV import, loop for user, getting data from import, calculations, output table.
 #	Ryan: code :D
 #	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv - and wrote the 
@@ -40,7 +40,7 @@
 import arcpy
 import csv
 
-# Arcpy: A function for selecting the station layer user input and the change flow
+# Arcpy: A function for selecting the station layer user input and the runoff
 def change_station_symbology(selected_station_name, change_flow, m):
     lyr = m.listLayers(selected_station_name)[0]
     sym = lyr.symbology
