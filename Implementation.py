@@ -48,15 +48,14 @@ with open("Complete_Table.csv", 'r') as file:
     print(header)
     for row in csvreader:
         rows.append(row)
-        
 list = list(rows)
-#list = [[id], [station], [month], [flow 18], [flow22], [precip18], [precip22], [areaha]]
-#         [0]   [1]         [2]     [3]         [4]         [5]         [6]         [7]
+# LIST FORMAT:
+# list = [[id], [station], [month], [flow 18], [flow22], [precip18], [precip22], [areaha]]
 
 #Again = y for looping purposes. 
 again = 'y'
 
-while again == 'y': 
+while again.lower== 'y': 
     #--USER INPUT--
     #ADD IN HANDLERS FOR INPUT VALUES THAT ARE NOT INTEGERS
     while True:
@@ -65,7 +64,7 @@ while again == 'y':
         except ValueError:
             print("Must enter an integer!")
         else:
-            if 1 <= selected_station <5:
+            if 1 <= selected_station <=5:
                 break 
             else:
                 print ("Out of Range.")
@@ -76,14 +75,16 @@ while again == 'y':
         except ValueError:
             print("Must enter an integer!")
         else:
-            if 1 <= selected_month <12:
+            if 1 <= selected_month <=12:
                 break 
             else:
                 print ("Out of Range.")
     
-    ##Obtaining the station specific records
+    ##OBTAINING STATION SPECIFIC RECORDS
     record = []
     for i in list:
+        # Values for 5 stations, 12 months in one list
+        # Starting value for next station will be 12 records after the previous
         index = selected_station*12-12
         start = (selected_station-1)*12
         stop = (selected_station)*12
@@ -123,5 +124,6 @@ while again == 'y':
 
     #Ask user if they want to go again
     again = input('Would you like to select another month or location to display? (y/n) ')
+    
     if again.lower() not in ['y','n']:
         print("Please enter 'y' or 'n'")
