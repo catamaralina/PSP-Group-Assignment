@@ -40,7 +40,7 @@
 import arcpy
 import csv
 
-# Arcpy: A function for creating the station layer uses user input
+# Arcpy: A function for selecting the station layer user input and the change flow
 def change_station_symbology(selected_station_name, change_flow, m):
     lyr = m.listLayers(selected_station_name)[0]
     sym = lyr.symbology
