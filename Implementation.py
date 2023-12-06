@@ -2,7 +2,7 @@
 # Date: Tuesday, December 5, 2023
 # Author Contributions:
 #	Mengie: Created the Arcpy portion that will change the symbology of the station(s) selected by the user on a map to either 
-#           green or red or remain the same depending on if the change in flow was positive or negative.  
+#           green or red or remained the same depending on if the change in flow was positive or negative.  
 #	Tali: Created implementation portion of code: CSV import, user input & loop, getting station specific data from import,
 #           calculations, output table.
 #	Ryan: Created efficiencies in the arcpy code by turning the code into a function.  Completed the user input (y/n) loop and created comments. 
