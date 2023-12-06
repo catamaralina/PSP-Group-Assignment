@@ -5,9 +5,9 @@
 #           green or red or remain the same depending on if the change in flow was positive or negative.  
 #	Tali: Created implementation portion of code: CSV import, user input & loop, getting station specific data from import,
 #           calculations, output table.
-#	Ryan: Created efficiencies in the arcpy code by turning the code into a function.  Completed the user input (y/n) loop and inputed comments. 
+#	Ryan: Created efficiencies in the arcpy code by turning the code into a function.  Completed the user input (y/n) loop and created comments. 
 #	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv - and wrote the 
-#           comments for the top of the code. Filled out the test values excel file. Did the error coding for user inputs. Created the test values
+#           comments for the top of the code. Filled out the test values excel file. Did the error coding for user inputs. 
 # Purpose: Runoff is described to be the total amount of water discharged from a watershed via river or streams, and the runoff ratio 
 #          is the runoff for each watershed divided by the precipitation for that watershed (Minnesota Pollution Control Agency). This 
 #          program uses open sourced data collected from the Grand River Watershed to determine statistical calculations of a selected 
