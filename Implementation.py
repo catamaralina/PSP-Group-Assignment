@@ -1,13 +1,13 @@
 # Title: Water Budget
 # Date: Tuesday, December 5, 2023
 # Author Contributions:
-#	Mengie: Created the Arcpy portion that will change the symbology of the station(s) selected by the user on a map either 
-#           green or red depending on runoff of the watershed.
+#	Mengie: Created the Arcpy portion that will change the symbology of the station(s) selected by the user on a map to either 
+#           green or red or remain the same depending on if the change in flow was positive or negative.  
 #	Tali: Created implementation portion of code: CSV import, user input & loop, getting station specific data from import,
 #           calculations, output table.
-#	Ryan: code :D
+#	Ryan: Created efficiencies in the arcpy code by turning the code into a function.  Completed the user input (y/n) loop and inputed comments. 
 #	Hannah: Combined the data of five stations from each month between the years 2018 and 2022 into one combined csv - and wrote the 
-#           comments for the top of the code. Filled out the test values excel file. Did the error coding for user inputs.
+#           comments for the top of the code. Filled out the test values excel file. Did the error coding for user inputs. Created the test values
 # Purpose: Runoff is described to be the total amount of water discharged from a watershed via river or streams, and the runoff ratio 
 #          is the runoff for each watershed divided by the precipitation for that watershed (Minnesota Pollution Control Agency). This 
 #          program uses open sourced data collected from the Grand River Watershed to determine statistical calculations of a selected 
@@ -28,7 +28,7 @@
 #                month the user would like to compare, and 'y/n' if the user would like to loop the program and compare another station.
 #                The output of the program displays the inputted variables (flow and precipitation from 2018 and 2022 of the selected 
 #                month), the calculated runoff, and the changes between the two sets of numbers in the form of a table generated in the 
-#                terminal - as well as a map that changes symbology of the two points depending on the results. 
+#                terminal - as well as a map that changes symbology of the station depending on if the change in flow was positive or negative. 
 # References:
 # https://www.roseke.com/how-to-calculate-runoff/ - We got our formula used for the calculations from this site.
 # https://www.oregon.gov/ODOT/GeoEnvironmental/Docs_Hydraulics_Manual/Hydraulics-07-F.pdf - This site contains a thorough list of the 
